@@ -3,13 +3,15 @@
 user www-data;
 
 # have 4 worker processes
-worker_processes 4;
+worker_processes auto;
 
 pid /var/run/nginx.pid;
 
 events {
-  worker_connections 768;
-  # multi_accept on;
+  # number of worker connections which can be established.
+  # this combined with 'auto' for worker processes gives
+  # you a maximum of cpu_cores * 8000 concurrent connections
+  worker_connections 8000;
 }
 
 
