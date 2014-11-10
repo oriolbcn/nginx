@@ -49,6 +49,8 @@ http {
   gzip on;
   gzip_disable "msie6";
 
+  ssl_protocols  TLSv1 TLSv1.1 TLSv1.2;  # don’t use SSLv3 ref: POODLE
+
   include /etc/nginx/conf.d/*.conf;
   include /etc/nginx/sites-enabled/*;
 }
